@@ -1,0 +1,33 @@
+{
+  "name": "spark-platform",
+  "version": "0.0.1",
+  "description": "Node.JS interface for the SparkPlatform API",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel -d lib/ src/",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kolyaventuri/node-spark.git"
+  },
+  "keywords": [
+    "spark",
+    "platform",
+    "spark",
+    "real",
+    "estate",
+    "mls"
+  ],
+  "author": "Kolya Venturi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kolyaventuri/node-spark/issues"
+  },
+  "homepage": "https://github.com/kolyaventuri/node-spark#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
