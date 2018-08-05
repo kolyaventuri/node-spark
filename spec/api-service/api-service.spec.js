@@ -1,4 +1,4 @@
-import { APIService } from '../../src/api-service';
+import APIService from '../../src/api-service';
 
 describe('APIService', () => {
   const API = new APIService('https://jsonplaceholder.typicode.com', {});
