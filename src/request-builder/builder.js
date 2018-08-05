@@ -3,17 +3,15 @@ import querystring from 'querystring';
 export default class Builder {
 
   constructor(headers) {
-    this.HEADERS = headers;
-
     this.TEMPLATE = {
       uri: '',
-      headers: {},
+      headers: headers,
       json: true
     };
   }
 
   frameworkRequest(uri) {
-    return Object.assign({ uri }, this.TEMPLATE);
+    return Object.assign(this.TEMPLATE, { uri });
   }
 
   get(url, params) {
