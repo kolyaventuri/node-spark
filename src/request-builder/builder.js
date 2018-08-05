@@ -1,36 +1,36 @@
 import querystring from 'querystring';
 
-let TEMPLATE = {
-  uri: '',
-  headers: {},
-  json: true
-};
+export default class Builder {
 
-const frameworkRequest = (uri) => {
-  return Object.assign({ uri }, TEMPLATE);
-}
+  constructor(headers) {
+    this.HEADERS = headers;
 
-export default {
-  get: (url, params) => {
+    this.TEMPLATE = {
+      uri: '',
+      headers: {},
+      json: true
+    };
+  }
+
+  frameworkRequest(uri) {
+    return Object.assign({ uri }, this.TEMPLATE);
+  }
+
+  get(url, params) {
     let query = `?${querystring.stringify(params)}`;
-    let framework = frameworkRequest(url + query);
+    let framework = this.frameworkRequest(url + query);
 
     return Object.assign({
       method: 'GET'
     }, framework);
-  },
+  }
 
-  post: (url, body) => {
-    let framework = frameworkRequest(url, body);
+  post(url, body) {
+    let framework = this.frameworkRequest(url, body);
 
     return Object.assign({
       method: 'POST',
       body
     }, framework);
-  },
-
-  setHeaders: (headers) => {
-    TEMPLATE = Object.assign({ headers }, TEMPLATE);
-    console.log(TEMPLATE)
   }
 }
