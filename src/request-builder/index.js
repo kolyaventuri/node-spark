@@ -1,23 +1,22 @@
-import builder from './builder';
-
-const build = {
-  'GET': builder.get,
-  'POST': builder.post
-};
+import Builder from './builder';
 
 export default class RequestBuilder {
 
   constructor(url, headers) {
       this.BASE_URL = url;
-      this.HEADERS = headers;
 
-      builder.setHeaders(headers);
+      let builder = new Builder(headers);
+
+      this.buildMethods = {
+        'GET': builder.get,
+        'POST': builder.post
+      }
   }
 
   build(url, params, method = 'GET') {
     method = method.toUpperCase();
 
-    return build[method](this.BASE_URL + url, params);
+    return this.buildMethods[method](this.BASE_URL + url, params);
   }
 
 }
