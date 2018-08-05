@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha --require babel-core/register spec/spec_setup.js --require spec/spec_helper.js --recursive spec/**/*.spec.js --timeout 10000",
+    "test:single": "mocha --require babel-core/register spec/spec_setup.js --require spec/spec_helper.js --timeout 10000",
     "build": "babel -d lib/ src/",
     "prepublish": "npm run build"
   },
