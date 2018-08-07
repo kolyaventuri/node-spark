@@ -9,7 +9,7 @@ export default class Builder {
     };
   }
 
-  get(url, params) {
+  get = (url, params) => {
     let query = `?${querystring.stringify(params)}`;
 
     let framework = Object.assign(this.TEMPLATE, { uri: url + query });
@@ -19,16 +19,12 @@ export default class Builder {
     }, framework);
   }
 
-  post(url, body) {
+  post = (url, body) => {
     let framework = Object.assign(this.TEMPLATE, { uri: url });
 
     return Object.assign({
       method: 'POST',
       body
     }, framework);
-  }
-
-  static register(headers) {
-    return new this(headers);
   }
 }
