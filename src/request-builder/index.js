@@ -5,15 +5,15 @@ export default class RequestBuilder {
   constructor(url, headers) {
       this.BASE_URL = url;
 
-      let builder = new Builder(headers);
+      let builder = Builder.register(headers);
 
       this.buildMethods = {
-        'GET': builder.get,
-        'POST': builder.post
+        'GET': builder.get.bind(builder),
+        'POST': builder.post.bind(builder)
       }
   }
 
-  build(url, params, method = 'GET') {
+  build(url, params = {}, method = 'GET') {
     method = method.toUpperCase();
 
     return this.buildMethods[method](this.BASE_URL + url, params);
