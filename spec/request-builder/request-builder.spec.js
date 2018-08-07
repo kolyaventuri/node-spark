@@ -7,6 +7,7 @@ describe('Request Builder', () => {
     let result = builder.build('/end', { q:2 });
 
     expect(result).to.eql({
+      method: 'GET',
       uri: 'AURL/end?q=2',
       headers: {
         h: 1
