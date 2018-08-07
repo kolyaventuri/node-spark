@@ -5,11 +5,11 @@ export default class RequestBuilder {
   constructor(url, headers) {
       this.BASE_URL = url;
 
-      let builder = Builder.register(headers);
+      let builder = new Builder(headers);
 
       this.buildMethods = {
-        'GET': builder.get.bind(builder),
-        'POST': builder.post.bind(builder)
+        'GET': builder.get,
+        'POST': builder.post
       }
   }
 
