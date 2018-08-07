@@ -7,7 +7,7 @@ export default class APIService {
     this.builder = new RequestBuilder(url, headers);
   }
 
-  async get(url, paramters = {}) {
+  async get(url, parameters = {}) {
     let opts = this.builder.build(url, parameters);
 
     return await request(opts);
