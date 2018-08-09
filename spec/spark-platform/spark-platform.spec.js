@@ -2,10 +2,10 @@ import SparkPlatform from '../../src';
 import Client from '../../src/spark/client';
 
 describe('SparkPlatform', () => {
-  xit('can be created by instantiating new SparkPlatform.client()', () => {
+  it('can be created by instantiating new SparkPlatform.client()', () => {
     let instance = new SparkPlatform.client();
 
-    expect(instance).to.be.a(Client);
+    expect(instance).to.be.an.instanceOf(Client);
   });
 
   it('cannot be instantiated directly', () => {
