@@ -1,6 +1,5 @@
 import SparkPlatform from '../../src';
 import Client from '../../src/spark/client';
-import { InstantiationError } from '../../src/errors';
 
 describe('SparkPlatform', () => {
   xit('can be created by instantiating new SparkPlatform.client()', () => {
@@ -14,6 +13,6 @@ describe('SparkPlatform', () => {
       return new SparkPlatform();
     };
 
-    expect(instance).to.throw(InstantiationError, 'You cannot instantiate the SparkPlatform directly. Please use `new SparkPlatform.client()` instead.');
+    expect(instance).to.throw('You cannot instantiate the SparkPlatform directly. Please use `new SparkPlatform.client()` instead.');
   });
 });
