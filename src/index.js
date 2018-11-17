@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import Client from './spark/client';
 
 export default class SparkPlatform {
