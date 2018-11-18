@@ -1,5 +1,5 @@
 import * as connection from './connection';
-import * as accounts from './routes/accounts'
+import * as accounts from './routes/accounts';
 
 export default class Client {
   constructor(key, secret) {
@@ -15,5 +15,6 @@ export default class Client {
     connection.assign(key, secret);
   }
 
-  accounts = accounts
+  static accounts = accounts;
+  static makeRequest = connection.makeRequest;
 }
