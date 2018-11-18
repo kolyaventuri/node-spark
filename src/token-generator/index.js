@@ -29,8 +29,6 @@ export default class TokenGenerator {
           return resolve(this.token);
         }
 
-        console.log('Still waiting...', this.token);
-
         return this.waitForToken(resolve);
       }, 500);
     });
