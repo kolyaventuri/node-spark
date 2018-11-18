@@ -11,7 +11,7 @@ describe('Builder', () => {
 
       expect(result).to.be.an('object')
         .that.has.property('uri')
-        .that.equals('AURL/url?q=2&b=3');
+        .that.equals('AURL/url?b=3&q=2');
 
       expect(result).to.have.property('headers')
         .that.eqls(headers);

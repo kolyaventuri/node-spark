@@ -30,5 +30,5 @@ describe('SparkPlatform', () => {
     };
 
     expect(instance).to.throw('No API_SECRET provided.');
-  })
+  });
 });

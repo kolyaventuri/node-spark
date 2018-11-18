@@ -1,4 +1,5 @@
 import querystring from 'querystring';
+import alphabetize from '../utils/alphabetize';
 
 export default class Builder {
   constructor(headers) {
@@ -10,6 +11,7 @@ export default class Builder {
   }
 
   get = (url, params) => {
+    params = alphabetize(params);
     let query = `?${querystring.stringify(params)}`;
 
     let framework = Object.assign(this.TEMPLATE, { uri: url + query });
