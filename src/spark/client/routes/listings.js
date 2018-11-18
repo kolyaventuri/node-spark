@@ -1,5 +1,6 @@
 import {makeRequest} from '../connection';
 import transformParams from '../../../utils/transform-params';
+import alphabetize from '../../../utils/alphabetize';
 
 const setupParams = params => {
   params = transformParams(params);
