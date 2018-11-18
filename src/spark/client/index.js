@@ -16,7 +16,7 @@ export default class Client {
     connection.assign(key, secret);
   }
 
-  static accounts = accounts;
-  static lisitings = listings;
-  static makeRequest = connection.makeRequest;
+  accounts = accounts;
+  lisitings = listings;
+  makeRequest = connection.makeRequest;
 }
