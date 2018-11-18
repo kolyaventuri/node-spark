@@ -9,7 +9,7 @@ const setupParams = params => {
 export const search = async (params) => {
   params = setupParams(params);
 
-  const result = await makeRequest('/listings');
+  const result = await makeRequest('/listings', params);
 
   try {
     return result.D.Results;
