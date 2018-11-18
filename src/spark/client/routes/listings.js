@@ -6,7 +6,7 @@ const setupParams = params => {
   return alphabetize(params);
 };
 
-export const search = async (params) => {
+export const search = async (params = {}) => {
   params = setupParams(params);
 
   const result = await makeRequest('/listings', params);

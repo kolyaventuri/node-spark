@@ -17,6 +17,6 @@ export default class Client {
   }
 
   accounts = accounts;
-  lisitings = listings;
+  listings = listings;
   makeRequest = connection.makeRequest;
 }
