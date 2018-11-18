@@ -5,18 +5,21 @@ import SignatureGenerator from '../../signature-generator';
 
 let key, secret;
 let apiService;
+let tokenGenerator;
+let credentials;
+let signatureGenerator;
 
 export const assign = (_key, _secret) => {
   key = _key;
   secret = _secret;
   apiService = new APIService(API_URL, DEFAULT_HEADERS);
+
+  credentials = [key, secret];
+  tokenGenerator = new TokenGenerator(...credentials);
+  signatureGenerator = new SignatureGenerator(...credentials);
 };
 
 export const makeRequest = async (url, params) => {
-  const credentials = [key, secret];
-  const tokenGenerator = new TokenGenerator(...credentials);
-  const signatureGenerator = new SignatureGenerator(...credentials);
-
   const token = await tokenGenerator.getToken();
   const signature = signatureGenerator.generate(url, params, token.token);
 

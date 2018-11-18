@@ -18,10 +18,31 @@ export default class TokenGenerator {
     this.API_SIG = crypto.createHash('md5').update(secret + "ApiKey" + key).digest("hex");
 
     this.token = {expires: new Date(0)};
+    this._generating = false;
+  }
+
+  waitForToken = (resolve = null) => {
+    return new Promise(_resolve => {
+      resolve = _resolve || resolve;
+      setTimeout(() => {
+        if (this.token.token) {
+          return resolve(this.token);
+        }
+
+        console.log('Still waiting...', this.token);
+
+        return this.waitForToken(resolve);
+      }, 500);
+    });
   }
 
   async getToken() {
+    if (this._generating) {
+      return await this.waitForToken();
+    }
+
     if(this.token.expires > new Date()) return this.token;
+    this._generating = true;
 
     let result = await API.post('/session', { ApiKey: this.key, ApiSig: this.API_SIG });
 
@@ -33,6 +54,8 @@ export default class TokenGenerator {
       token:   result.D.Results[0].AuthToken,
       expires: new Date(result.D.Results[0].Expires)
     };
+
+    this._generating = false;
 
     return this.token;
   }
