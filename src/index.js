@@ -6,5 +6,5 @@ export default class SparkPlatform {
     throw new Error('You cannot instantiate the SparkPlatform directly. Please use `new SparkPlatform.client()` instead.');
   }
 
-  static client = Client;
+  static Client = Client;
 }

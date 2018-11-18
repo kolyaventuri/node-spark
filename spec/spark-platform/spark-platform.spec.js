@@ -3,7 +3,7 @@ import Client from '../../src/spark/client';
 
 describe('SparkPlatform', () => {
   it('can be created by instantiating new SparkPlatform.client()', () => {
-    let instance = new SparkPlatform.client('a', 'b');
+    let instance = new SparkPlatform.Client('a', 'b');
 
     expect(instance).to.be.an.instanceOf(Client);
   });
@@ -18,7 +18,7 @@ describe('SparkPlatform', () => {
 
   it('cannot be instantiated without an API_KEY', () => {
     let instance = () => {
-      return new SparkPlatform.client(null, 'b');
+      return new SparkPlatform.Client(null, 'b');
     };
 
     expect(instance).to.throw('No API_KEY provided.');
@@ -26,7 +26,7 @@ describe('SparkPlatform', () => {
 
   it('cannot be instantiated without an API_SECRET', () => {
     let instance = () => {
-      return new SparkPlatform.client('a');
+      return new SparkPlatform.Client('a');
     };
 
     expect(instance).to.throw('No API_SECRET provided.');
